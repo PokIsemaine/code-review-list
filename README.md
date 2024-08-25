@@ -24,6 +24,10 @@
 ## 并发
 * atomic<T>, is_lock_free 或 static_assert + is_always_lock_free 检查是否是无锁操作。特别是 T 比较大或者 T 是自定义的未来可能由于扩展变成非无锁操作
 
+## 指针
+
+* 检查一下所有 -> 的，运行时有没有可能 nullptr->，做好 IF 或者 DCHECK
+
 ## 类/结构体
 * 成员函数、变量 + const
 * 成员变量如果为指针类型，注意一下是否允许为 nullptr，如果不允许的话可以在 ctor 用 DCHECK 来检查
